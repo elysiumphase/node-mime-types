@@ -1,0 +1,45 @@
+{
+  "name": "node-mime-types",
+  "version": "1.0.0",
+  "author": "Adrien Valcke <adrienvalcke@icloud.com> (https://github.com/adrienv1520)",
+  "description": "A Node.js and zero-dependencies MIME type utility",
+  "bin": {},
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint lib/",
+    "pretest": "npm run lint",
+    "test": "mocha test/* --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adrienv1520/node-mime-types.git"
+  },
+  "engines": {
+    "node": ">=8.17.0",
+    "npm": ">=6.13.4"
+  },
+  "keywords": [
+    "node-mime-types",
+    "MIME",
+    "type",
+    "file",
+    "file name",
+    "path"
+  ],
+  "files": [
+    "lib"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "~4.2.0",
+    "eslint": "~7.9.0",
+    "eslint-config-airbnb-base": "~14.2.0",
+    "eslint-plugin-import": "~2.22.0",
+    "mime-db": "~1.45.0",
+    "mocha": "~8.1.3"
+  },
+  "private": false,
+  "preferGlobal": false,
+  "analyze": false,
+  "license": "MIT"
+}
