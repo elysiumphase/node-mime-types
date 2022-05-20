@@ -1,5 +1,5 @@
 const { expect } = require('./Common');
-const { exists, is } = require('../lib/object');
+const { exists, is } = require('../src/object');
 
 describe('#object helper', function() {
   context('when using exists', function() {

@@ -1,11 +1,25 @@
 const { writeFileSync } = require('fs');
 const { join } = require('path');
-/* eslint import/no-extraneous-dependencies: "off" */
+/* eslint-disable import/no-extraneous-dependencies */
+const { template } = require('lodash');
 const db = require('mime-db');
+/* eslint-enable import/no-extraneous-dependencies */
+const { devDependencies } = require('../package.json');
 
+const getTemplate = (title) => `/**
+ * ${title}
+ *
+ * generated on ${new Date().toISOString()} with mime-db v${
+  devDependencies['mime-db']
+}
+ */
+module.exports = Object.freeze(<%= data %>);`;
 const mimetypesByExtension = {};
 const extensionsByMIMEType = {};
 
+console.info('building files...');
+
+// build extensions and MIME types object
 Object.keys(db).forEach((mime) => {
   if (db[mime].extensions !== undefined && Array.isArray(db[mime].extensions)) {
     extensionsByMIMEType[mime] = [];
@@ -17,6 +31,7 @@ Object.keys(db).forEach((mime) => {
   }
 });
 
+// sort extensions and MIME types keys and rebuild objects
 const mimetypesByExtensionSorted = {};
 const extensionsByMIMETypeSorted = {};
 const extensionsSorted = Object.keys(mimetypesByExtension).sort();
@@ -30,8 +45,19 @@ mimeTypesSorted.forEach((mime) => {
   extensionsByMIMETypeSorted[mime] = extensionsByMIMEType[mime];
 });
 
-writeFileSync(join(__dirname, './mimetypesByExtension.json'), JSON.stringify(mimetypesByExtensionSorted, null, 2));
-writeFileSync(join(__dirname, './extensionsByMIMEType.json'), JSON.stringify(extensionsByMIMETypeSorted, null, 0));
-writeFileSync(join(__dirname, './build.json'), JSON.stringify({ built_at: new Date().toISOString() }, null, 2));
+// write files
+writeFileSync(
+  join(__dirname, '../src/mimetypesByExtension.js'),
+  template(getTemplate(`${Object.keys(mimetypesByExtensionSorted).length} extensions and their related mime type`))({
+    data: JSON.stringify(mimetypesByExtensionSorted, null, 2),
+  }),
+);
+
+writeFileSync(
+  join(__dirname, '../src/extensionsByMIMEType.js'),
+  template(getTemplate(`${Object.keys(extensionsByMIMETypeSorted).length} mime types and their related extension(s)`))({
+    data: JSON.stringify(extensionsByMIMETypeSorted, null, 0),
+  }),
+);
 
 console.info('successfully built files');
