@@ -1,7 +1,3 @@
-# build
-build/extensionsByMIMEType.json
-build/mimetypesByExtension.json
-
 # eslint cache
 .eslintcache
 
