@@ -1,5 +1,5 @@
 const { expect } = require('./Common');
-const { getMIMEType, getExtension } = require('../lib');
+const { getMIMEType, getExtension } = require('../src');
 
 // based on: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
 const commonMIMETypesByExtension = {

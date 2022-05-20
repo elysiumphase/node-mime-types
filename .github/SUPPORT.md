@@ -1,6 +1,7 @@
 # Support
 
 ## Finding Support
+
 If you have a security concern,
 please see our [security page](SECURITY.md).
 
@@ -17,6 +18,7 @@ of node-mime-types, please report it with the
 [issue tracker](https://github.com/adrienv1520/node-mime-types/issues).
 
 ## Supported Versions
+
 The latest *stable* major version is currently supported by the team.
 For example, if the latest release is 1.6.y, then the 1.x.y versions are supported.
 
@@ -29,6 +31,7 @@ as time and bandwidth warrants.
 - 1.x.y
 
 ### End-of-life
+
 When a release branch reaches the end of its support cycle, the series
 will be deprecated in NPM and a final end-of-support release will be
 made. This release will add a warning to inform that an unsupported

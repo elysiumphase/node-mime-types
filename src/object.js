@@ -1,8 +1,8 @@
 /**
  * Object helper from consis (https://github.com/adrienv1520/consis).
  *
- *    - exists(thing) -> Boolean
- *    - is(Type, thing) -> Boolean
+ *  - exists(thing) -> Boolean
+ *  - is(Type, thing) -> Boolean
  */
 
 /**
@@ -25,12 +25,14 @@ const exists = function exists(thing) {
  * @return {Boolean}
  */
 const is = function is(Type, thing) {
-  return exists(Type)
-  && exists(thing)
-  && (thing.constructor === Type
-  || thing instanceof Type);
+  return (
+    exists(Type)
+    && exists(thing)
+    && (thing.constructor === Type || thing instanceof Type)
+  );
 };
 
+// exports
 module.exports = Object.freeze({
   exists,
   is,
