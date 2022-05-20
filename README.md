@@ -6,74 +6,74 @@
   A Node.js and zero-dependencies MIME type utility.
 <p>
 
-# Table of Contents
+# node-mime-types <!-- omit in toc -->
+
+## Table of Contents <!-- omit in toc -->
+
 - [Presentation](#presentation)
 - [Installation](#installation)
 - [Technical information](#technical-information)
-  - [Node.js](#nodejs)
+  - [Stack](#stack)
+  - [Code quality](#code-quality)
   - [Tests](#tests)
-    - [Linting](#linting)
-    - [Unit](#unit)
+  - [Security](#security)
 - [Usage](#usage)
   - [Import module](#import-module)
-  - [getMIMEType(filenameOrPath)](#getmimetypefilenameorpath)
   - [getExtension(mimeType)](#getextensionmimetype)
+  - [getMIMEType(filenameOrPath)](#getmimetypefilenameorpath)
 - [Code of Conduct](#code-of-conduct)
 - [Contributing](#contributing)
+  - [Format](#format)
+  - [Linting](#linting)
+  - [Automatically fixing linting](#automatically-fixing-linting)
+  - [Test](#test)
+  - [Build](#build)
 - [Support](#support)
-- [Security](#security)
-- [Licence](#licence)
+- [Security](#security-1)
+- [License](#license)
 
-# Presentation
+## Presentation
 
 This library is powered by [mime-db](https://github.com/jshttp/mime-db) data. It provides a very simple, lightweight, safe yet speed utility to deal with MIME types and file extensions.
 
-Supports **[1163 extensions](lib/mimetypesByExtension.js)** and **[947 MIME types](lib/extensionsByMIMEType.js)**.
+Supports **[1163 file extensions](src/mimetypesByExtension.js)** and **[947 MIME types](src/extensionsByMIMEType.js)**.
 
-# Installation
+## Installation
 
 `npm install node-mime-types`
 
 `npm i -S node-mime-types`
 
-# Technical information
+## Technical information
 
-## Node.js
+### Stack
 
-- Language: JavaScript ES6/ES7
-- VM: Node.js >= Carbon (8.17.0)
+- NodeJS >= 8.17.0
+- NPM >=6.13.4
 
-## Tests
+### Code quality
 
-Node.js >= Dubnium (10.22.1) could be required for some testing modules.
+Code style follows [Airbnb JavaScript Best Practices](https://github.com/airbnb/javascript) using ESLint.
 
-Command to run all tests:
+### Tests
 
-`npm test`
+Uses Mocha and Chai for unit testing.
 
-### Linting
+### Security
 
-ESLint with Airbnb base rules. See  __<a href="https://github.com/airbnb/javascript" target="_blank">Airbnb JavaScript Style Guide</a>__.
+- [Code security](https://docs.npmjs.com/packages-and-modules/securing-your-code) and most precisely module dependencies can be audited running `npm audit`.
 
-`npm run test:lint`
+## Usage
 
-### Unit
-
-Mocha and Chai.
-
-`npm run test:unit`
-
-# Usage
-
-## Import module
+### Import module
 
 ```javascript
 const mime = require('node-mime-types');
 
 // mime is an object of functions
 const {
-  getMIMEType,
   getExtension,
+  getMIMEType,
 } = require('node-mime-types');
 ```
 
@@ -81,10 +81,44 @@ const {
 
 - `mime` **<Object\>** with the following functions.
 
-## getMIMEType(filenameOrPath)
+### getExtension(mimeType)
+
+Returns the file extension(s) based on the MIME type.
+
+**Note**:
+
+- if a MIME type does not exist or is unknown, the empty string is returned;
+- if a MIME type has only one extension related to, a string is returned;
+- if a MIME type corresponds to multiple extensions, an array is returned;
+- supports MIME types in lower and upper case.
+  - `mimeType` **<String\>**
+  - Returns: **<String\>** | **<Array\>**  *Default*: `''`
+
+<br/>
+
+**Examples**:
+
+```javascript
+getExtension(); // ''
+getExtension(false); // ''
+getExtension(''); // ''
+getExtension('application/unknown'); // ''
+
+getExtension('application/json5'); // '.json5'
+getExtension('application/rtf'); // '.rtf'
+
+getExtension('text/plain'); // ['.txt', '.text', '.conf', '.def', '.list', '.log', '.in', '.ini']
+getExtension('application/json'); // ['.json', '.map']
+
+getExtension('IMAGE/PNG'); // '.png'
+```
+
+### getMIMEType(filenameOrPath)
+
 Returns the MIME type based on the file name or path extension.
 
 **Note**:
+
 - if a file name or path is not a string or is the empty string, the empty string is returned;
 - if a file name or path has no extension or an unknown extension, a default MIME type is returned;
 - supports extensions in lower and upper case.
@@ -94,6 +128,7 @@ Returns the MIME type based on the file name or path extension.
 <br/>
 
 **Examples**:
+
 ```javascript
 getMIMEType(); // ''
 getMIMEType([]); // ''
@@ -112,48 +147,50 @@ getMIMEType('../../path/to/file-name.XML'); // 'text/xml'
 getMIMEType('README.md'); // 'text/markdown'
 ```
 
-## getExtension(mimeType)
-Returns the file extension(s) based on the MIME type.
+## Code of Conduct
 
-**Note**:
-- if a MIME type does not exist or is unknown, the empty string is returned;
-- if a MIME type has only one extension related to, a string is returned;
-- if a MIME type corresponds to multiple extensions, an array is returned;
-- supports MIME types in lower and upper case.
-  - `mimeType` **<String\>**
-  - Returns: **<String\>** | **<Array\>**  *Default*: `''`
-
-<br/>
-
-**Examples**:
-```javascript
-getExtension(); // ''
-getExtension(false); // ''
-getExtension(''); // ''
-getExtension('application/unknown'); // ''
-
-getExtension('application/json5'); // '.json5'
-getExtension('application/rtf'); // '.rtf'
-
-getExtension('text/plain'); // ['.txt', '.text', '.conf', '.def', '.list', '.log', '.in', '.ini']
-getExtension('application/json'); // ['.json', '.map']
-
-getExtension('IMAGE/PNG'); // '.png'
-```
-
-# Code of Conduct
 This project has a [Code of Conduct](.github/CODE_OF_CONDUCT.md). By interacting with this repository, organization, or community you agree to abide by its terms.
 
-# Contributing
+## Contributing
+
 If you find any MIME type or file extension missing, please directly contribute to [mime-db](https://github.com/jshttp/mime-db).
 
 Please take also a moment to read our [Contributing Guidelines](.github/CONTRIBUTING.md) if you haven't yet done so.
 
-# Support
+### Format
+
+Uses `prettier` to format source code.
+
+`npm run format`
+
+### Linting
+
+`npm run lint`
+
+### Automatically fixing linting
+
+`npm run lint:fix`
+
+### Test
+
+`npm test`
+
+### Build
+
+Extensions by MIME type and MIME types by extension files.
+
+NOTE: will [format](#format) `src` right after building files.
+
+`npm run build`
+
+## Support
+
 Please see our [Support](.github/SUPPORT.md) page if you have any questions or for any help needed.
 
-# Security
+## Security
+
 For any security concerns or issues, please visit our [Security Policy](.github/SECURITY.md) page.
 
-# Licence
+## License
+
 [MIT](LICENSE.md).
