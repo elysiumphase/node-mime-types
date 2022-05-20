@@ -48,14 +48,14 @@ mimeTypesSorted.forEach((mime) => {
 // write files
 writeFileSync(
   join(__dirname, '../src/mimetypesByExtension.js'),
-  template(getTemplate('extensions and their related mime type'))({
+  template(getTemplate(`${Object.keys(mimetypesByExtensionSorted).length} extensions and their related mime type`))({
     data: JSON.stringify(mimetypesByExtensionSorted, null, 2),
   }),
 );
 
 writeFileSync(
   join(__dirname, '../src/extensionsByMIMEType.js'),
-  template(getTemplate('mime types and their related extension(s)'))({
+  template(getTemplate(`${Object.keys(extensionsByMIMETypeSorted).length} mime types and their related extension(s)`))({
     data: JSON.stringify(extensionsByMIMETypeSorted, null, 0),
   }),
 );

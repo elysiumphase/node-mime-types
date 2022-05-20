@@ -36,7 +36,7 @@
 
 This library is powered by [mime-db](https://github.com/jshttp/mime-db) data. It provides a very simple, lightweight, safe yet speed utility to deal with MIME types and file extensions.
 
-Supports **[1163 file extensions](src/mimetypesByExtension.js)** and **[947 MIME types](src/extensionsByMIMEType.js)**.
+Supports **[1180 file extensions](src/mimetypesByExtension.js)** and **[965 MIME types](src/extensionsByMIMEType.js)**.
 
 ## Installation
 

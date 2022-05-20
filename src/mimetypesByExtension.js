@@ -1,7 +1,7 @@
 /**
- * extensions and their related mime type
+ * 1180 extensions and their related mime type
  *
- * generated on 2022-05-20T14:52:02.774Z with mime-db v1.52.0
+ * generated on 2022-05-20T15:06:19.398Z with mime-db v1.52.0
  */
 module.exports = Object.freeze({
   '.123': 'application/vnd.lotus-1-2-3',
