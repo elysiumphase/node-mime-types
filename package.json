@@ -1,6 +1,6 @@
 {
   "name": "node-mime-types",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Adrien Valcke <adrienvalcke@icloud.com> (https://github.com/adrienv1520)",
   "description": "A Node.js and zero-dependencies MIME type utility",
   "bin": {},
