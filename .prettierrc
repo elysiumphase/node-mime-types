@@ -3,5 +3,6 @@
   "tabWidth": 2,
   "endOfLine": "lf",
   "quoteProps": "as-needed",
-  "trailingComma": "all"
+  "trailingComma": "es5",
+  "printWidth": 80
 }

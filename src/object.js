@@ -1,8 +1,5 @@
 /**
- * Object helper from consis (https://github.com/adrienv1520/consis).
- *
- *  - exists(thing) -> Boolean
- *  - is(Type, thing) -> Boolean
+ * Object helper from consis (https://github.com/elysiumphase/consis).
  */
 
 /**
