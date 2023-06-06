@@ -180,6 +180,7 @@ Uses `prettier` to format source code.
 Extensions by MIME type and MIME types by extension files.
 
 NOTE:
+
 - will [format](#format) `src` right after building files;
 - will [automatically fix linting](#automatically-fixing-linting).
 

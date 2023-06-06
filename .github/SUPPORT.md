@@ -15,7 +15,7 @@ see our [Contributing Guidelines](CONTRIBUTING.md).
 
 If you've found a bug in a [supported version](#supported-versions)
 of node-mime-types, please report it with the
-[issue tracker](https://github.com/adrienv1520/node-mime-types/issues).
+[issue tracker](https://github.com/elysiumphase/node-mime-types/issues).
 
 ## Supported Versions
 
