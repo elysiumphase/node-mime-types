@@ -1,6 +1,6 @@
 {
   "name": "node-mime-types",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Elysium Phase <hi@elysiumphase.com> (https://github.com/elysiumphase)",
   "description": "A Node.js and zero-dependencies MIME type utility",
   "bin": {},
