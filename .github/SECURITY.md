@@ -8,7 +8,7 @@ Your responsibility is to report vulnerabilities to us using the guidelines outl
 
 To report a security issue please do the following:
 
-* Email [adrienvalcke@icloud.com](mailto:adrienvalcke@icloud.com);
+* Email [hi@elysiumphase.com](mailto:hi@elysiumphase.com);
 * Include the word "SECURITY" in the subject line;
 * Give your name and affiliation (if any);
 * Include scope of vulnerability by letting us know who could use this exploit;

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.1.2 - delivery @07/06/2023
+
+- docs: fix author
+
 ## 1.1.1 - delivery @06/06/2023
 
 - feat: update with the latest known MIME types

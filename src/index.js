@@ -1,12 +1,5 @@
 /**
  * node-mime-types
- *
- * A Node.js and zero-dependencies MIME type utility.
- *
- * Author: Adrien Valcke <adrienvalcke@icloud.com>
- *
- * - getExtension(mimeType) -> String or Array
- * - getMIMEType(filenameOrPath) -> String
  */
 const { parse } = require('path');
 const { is } = require('./object');
